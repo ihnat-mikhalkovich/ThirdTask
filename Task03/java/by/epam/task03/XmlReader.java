@@ -4,9 +4,11 @@ import java.io.*;
 
 public class XmlReader implements AutoCloseable {
 
-    private final char openingSymbol = '<';
+    private final char OPENING_SYMBOL = '<';
 
-    private final char closingSymbol = '>';
+    private final char CLOSING_SYMBOL = '>';
+
+    private final int END_FILE = -1;
 
     private BufferedReader bufferedReader;
 
@@ -20,24 +22,25 @@ public class XmlReader implements AutoCloseable {
 
     public String readNode() throws IOException {
         StringBuilder s = new StringBuilder();
-        final int endFile = -1;
         String emptySpaceRegex = " +";
         int readCharNumber;
 
-        while ((readCharNumber = bufferedReader.read()) != endFile) {
-            if ((readCharNumber == (int) openingSymbol) || (readCharNumber == (int) closingSymbol)) {
+        while ((readCharNumber = bufferedReader.read()) != END_FILE) {
+            if ((readCharNumber == (int) OPENING_SYMBOL) || (readCharNumber == (int) CLOSING_SYMBOL)) {
                 if (s.toString().matches(emptySpaceRegex)) {
                     s.delete(0, s.length());
+                    continue;
                 }
-                else if (!s.toString().isEmpty()) {
-                    if (readCharNumber == (int) closingSymbol) {
-                        s.append(closingSymbol);
-                        return openingSymbol + s.toString();
-                    }
-                    return s.toString();
+                if (s.toString().isEmpty()) {
+                    continue;
                 }
+                if (readCharNumber == (int) CLOSING_SYMBOL) {
+                    s.append(CLOSING_SYMBOL);
+                    return OPENING_SYMBOL + s.toString().trim();
+                }
+                return s.toString();
             }
-            else if (!((readCharNumber == (int) '\n') || (readCharNumber == (int) '\r'))) {
+            if (!((readCharNumber == (int) '\n') || (readCharNumber == (int) '\r'))) {
                 s.append((char) readCharNumber);
             }
         }

@@ -3,6 +3,7 @@ package by.epam.task03.impl;
 import by.epam.task03.AnalyzerNodeXml;
 import by.epam.task03.XmlNode;
 import by.epam.task03.XmlReader;
+
 import java.io.*;
 
 public class AnalyzerNodeXmlImpl implements AnalyzerNodeXml, AutoCloseable {

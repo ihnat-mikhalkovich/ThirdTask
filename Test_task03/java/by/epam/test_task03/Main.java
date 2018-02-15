@@ -12,7 +12,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        String sourcePath = "example.txt";
+        String sourcePath = "example.xml";
         AnalyzerNodeXmlFactory analyzerNodeXmlFactory = AnalyzerNodeXmlFactory.getInstance();
         Command command = analyzerNodeXmlFactory.getAnalyzerNodeXmlCreator("AnalyzerNodeXmlImpl");
         AnalyzerNodeXml analyzerNodeXml = null;
