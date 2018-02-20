@@ -8,6 +8,10 @@ public class XmlReader implements AutoCloseable {
 
     private final char CLOSING_SYMBOL = '>';
 
+    private final char END_LINE = '\n';
+
+    private final char CARRIAGE_RETURN = '\r';
+
     private final int END_FILE = -1;
 
     private BufferedReader bufferedReader;
@@ -40,7 +44,7 @@ public class XmlReader implements AutoCloseable {
                 }
                 return s.toString();
             }
-            if (!((readCharNumber == (int) '\n') || (readCharNumber == (int) '\r'))) {
+            if (!((readCharNumber == (int) END_LINE) || (readCharNumber == (int) CARRIAGE_RETURN))) {
                 s.append((char) readCharNumber);
             }
         }
