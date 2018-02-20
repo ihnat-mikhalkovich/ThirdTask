@@ -1,7 +1,7 @@
 package by.epam.task03.command;
 
 import by.epam.task03.AnalyzerNodeXml;
-import by.epam.task03.impl.AnalyzerNodeXmlImpl;
+import by.epam.task03.AnalyzerNodeXmlImpl;
 
 import java.io.Reader;
 

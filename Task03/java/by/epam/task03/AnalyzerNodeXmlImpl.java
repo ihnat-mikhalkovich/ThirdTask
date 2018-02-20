@@ -1,8 +1,10 @@
-package by.epam.task03.impl;
+package by.epam.task03;
 
 import by.epam.task03.AnalyzerNodeXml;
+import by.epam.task03.AnalyzerNodeXmlFactory;
 import by.epam.task03.XmlNode;
 import by.epam.task03.XmlReader;
+import by.epam.task03.command.Command;
 
 import java.io.*;
 
