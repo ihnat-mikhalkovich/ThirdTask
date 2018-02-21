@@ -16,7 +16,7 @@ public class XmlReader implements AutoCloseable {
 
     private BufferedReader bufferedReader;
 
-    public XmlReader(Reader in, int sz) {
+    public XmlReader(Reader in, int sz) {// Reader in, int sz - ну нет на вас розог, Sz - чтоб это твоя кличка была...
         bufferedReader = new BufferedReader(in, sz);
     }
 
@@ -29,10 +29,11 @@ public class XmlReader implements AutoCloseable {
         String emptySpaceRegex = " +";
         int readCharNumber;
 
-        while ((readCharNumber = bufferedReader.read()) != END_FILE) {
-            if ((readCharNumber == (int) OPENING_SYMBOL) || (readCharNumber == (int) CLOSING_SYMBOL)) {
-                if (s.toString().matches(emptySpaceRegex)) {
-                    s.delete(0, s.length());
+        // логика реализации кривовата, не додумал хорошо
+        while ((readCharNumber = bufferedReader.read()) != END_FILE) {// читаешь символ
+            if ((readCharNumber == (int) OPENING_SYMBOL) || (readCharNumber == (int) CLOSING_SYMBOL)) {// Если прочитанный символ < или >
+                if (s.toString().matches(emptySpaceRegex)) {// пустую строку ( при первом заходе) ты сравниваешь с пробелами??????
+                    s.delete(0, s.length()); //так ты только объект создал - начего туде не добавил, зачем его сравнивать?
                     continue;
                 }
                 if (s.toString().isEmpty()) {

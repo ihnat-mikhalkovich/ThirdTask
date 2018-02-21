@@ -10,7 +10,7 @@ import java.io.*;
 
 public class AnalyzerNodeXmlImpl implements AnalyzerNodeXml, AutoCloseable {
 
-    XmlReader xmlReader;
+    XmlReader xmlReader;// ой мой, атрибут доступа куда дел?
 
     public AnalyzerNodeXmlImpl(Reader in, int sz) {
         xmlReader = new XmlReader(in, sz);

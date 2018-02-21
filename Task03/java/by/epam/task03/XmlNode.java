@@ -1,6 +1,6 @@
 package by.epam.task03;
 
-public class XmlNode implements Comparable<XmlNode>{
+public class XmlNode implements Comparable<XmlNode>{// Comparable<XmlNode> - как-то не рпеполагала, что для такого объекта есть естественная сортировка
 
     private String content;
 
@@ -8,7 +8,8 @@ public class XmlNode implements Comparable<XmlNode>{
 
     public XmlNode(String stringNode) {
         content = stringNode;
-        type = XmlNodeTypeDefiner.defineType(stringNode);
+        type = XmlNodeTypeDefiner.defineType(stringNode);// ошибка, 
+        //определить тип узла - это задача логики, а не сущности
     }
 
     public XmlNode (String content, XmlNodeType type) {

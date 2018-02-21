@@ -3,8 +3,8 @@ package by.epam.task03;
 public class XmlNodeTypeDefiner {
 
     public static XmlNodeType defineType(String stringNode) {
-        String openingTagRegex = "^<[^!?/].+>$";
-        String closingTagRegex = "^</.+>$";
+        String openingTagRegex = "^<[^!?/].+>$";//1 - в поля класса переменные - иначе зачем тебе ссылки на них при каждом вызове создавать
+        String closingTagRegex = "^</.+>$";// 2 - а более логично не получилось реализовать, через HashMap и итерирование по нему?, а не через целую цепочку if-в
         String commentTagRegex = "^<!.+>$";
         String tagWithOutBodyRegex = "^<.+/>$";
         String headTagRegex = "^<[?].+[?]>$";
