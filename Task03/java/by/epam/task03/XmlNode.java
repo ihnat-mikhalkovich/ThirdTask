@@ -8,7 +8,8 @@ public class XmlNode implements Comparable<XmlNode>{// Comparable<XmlNode> - к�
 
     public XmlNode(String stringNode) {
         content = stringNode;
-        type = XmlNodeTypeDefiner.defineType(stringNode);
+        type = XmlNodeTypeDefiner.defineType(stringNode);// ошибка, 
+        //определить тип узла - это задача логики, а не сущности
     }
 
     public XmlNode (String content, XmlNodeType type) {
